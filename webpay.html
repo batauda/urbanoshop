@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Webpay - Pago Simulado</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="top-bar">
+    <div class="logo">UrbanoShop — Webpay (simulado)</div>
+</div>
+
+<main class="container" style="max-width:640px;">
+    <h2>Pago - Webpay (simulado)</h2>
+    <p>Revisa tu compra y confirma el pago. Este flujo es <strong>simulado</strong>.</p>
+
+    <div id="webpay-resumen"></div>
+
+    <h3>Método de pago</h3>
+    <div id="webpay-tarjetas"></div>
+
+    <div style="margin-top:10px;">
+    <button id="toggle-fast-wp" onclick="toggleFastBoxWebpay()">Agregar tarjeta </button>
+    <div id="wp-fast-box" class="tarjeta-rapida-box" style="display:none;">
+        <input id="wp-fast-num" type="text" placeholder="Número de tarjeta (16 dígitos)">
+        <input id="wp-fast-nombre" type="text" placeholder="Nombre en tarjeta">
+        <input id="wp-fast-exp" type="text" placeholder="MM/AA">
+        <label style="display:flex; gap:8px; align-items:center;">
+        <input type="checkbox" id="wp-fast-guardar"> Guardar esta tarjeta en mi perfil
+        </label>
+        <button onclick="agregarTarjetaRapidaWebpay()">Usar tarjeta</button>
+    </div>
+    </div>
+
+    <h3>Datos del pagador</h3>
+    <label>Nombre</label>
+    <input id="wp-nombre" type="text" placeholder="Nombre completo">
+    <label>RUT (simulado)</label>
+    <input id="wp-rut" type="text" placeholder="12.345.678-9">
+
+    <div id="wp-processing" style="display:none; margin-top:16px; text-align:center;">
+    <p>Procesando pago…</p>
+    </div>
+
+    <div style="margin-top:14px; display:flex; gap:10px;">
+    <button class="btn-volver" onclick="window.location.href='pago.html'">Volver</button>
+    <button class="btn-comprar" onclick="processPayment()">Pagar ahora</button>
+    </div>
+</main>
+</body>
+</html>

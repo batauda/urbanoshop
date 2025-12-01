@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>UrbanoShop - Carrito</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="top-bar">
+    <div class="logo">UrbanoShop</div>
+    <div class="right-controls">
+    <button id="theme-toggle" class="icon-btn" title="Modo oscuro" onclick="toggleTheme()">🌓</button>
+    <span id="usuario-log"></span>
+    <div class="user-area">
+        <img src="img/user-icon.png" alt="user" class="user-icon" onclick="toggleMenu()">
+        <div id="menu" class="dropdown">
+        <p onclick="window.location.href='perfil.html'">Perfil</p>
+        <p onclick="logout()">Cerrar sesión</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<main class="container">
+    <h2>Carrito de Compras</h2>
+
+    <div id="lista-carrito"></div>
+
+    <h3 id="total"></h3>
+
+    <div class="botones-carrito">
+    <button onclick="window.location.href='catalogo.html'">Seguir comprando</button>
+    <button class="btn-rojo" onclick="vaciarCarrito()">Vaciar carrito</button>
+    </div>
+
+    <div style="margin-top:14px; display:flex; gap:12px;">
+    <button class="btn-comprar" onclick="irAPago()">Comprar</button>
+    <button class="btn-volver" onclick="window.location.href='index.html'">Volver al inicio</button>
+    </div>
+</main>
+</body>
+</html>

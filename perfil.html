@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>UrbanoShop - Perfil</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="top-bar">
+    <div class="logo">UrbanoShop</div>
+    <div class="right-controls">
+    <button id="theme-toggle" class="icon-btn" title="Modo oscuro" onclick="toggleTheme()">🌓</button>
+    <span id="usuario-log"></span>
+    <div class="user-area">
+        <img src="img/user-icon.png" alt="user" class="user-icon" onclick="toggleMenu()">
+        <div id="menu" class="dropdown">
+        <p onclick="window.location.href='perfil.html'">Perfil</p>
+        <p onclick="logout()">Cerrar sesión</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<main class="container">
+    <h2>Mi Perfil</h2>
+
+    <label>Correo electrónico</label>
+    <input id="perfil-correo" type="email" placeholder="correo@ejemplo.com">
+
+    <div style="display:flex; gap:10px; margin-top:10px;">
+    <button onclick="guardarPerfil()">Guardar correo</button>
+    </div>
+
+    <h3 style="margin-top:18px;">Cambiar contraseña</h3>
+    <label>Contraseña actual</label>
+    <input id="perfil-pass-old" type="password" placeholder="Contraseña actual">
+    <label>Nueva contraseña</label>
+    <input id="perfil-pass-new" type="password" placeholder="Nueva contraseña">
+    <div style="display:flex; gap:10px; margin-top:10px;">
+    <button onclick="cambiarPassword()">Cambiar contraseña</button>
+    <button onclick="recuperarContrasena()">¿Olvidaste tu contraseña?</button>
+    </div>
+
+    <hr style="margin:18px 0;">
+
+    <h3>Métodos de pago</h3>
+    <div id="lista-tarjetas"></div>
+
+    <h4 style="margin-top:14px;">Agregar nueva tarjeta</h4>
+    <input id="tarjeta-num" type="text" placeholder="Número de tarjeta (16 dígitos)">
+    <input id="tarjeta-nombre" type="text" placeholder="Nombre en tarjeta">
+    <input id="tarjeta-exp" type="text" placeholder="MM/AA">
+
+    <div style="display:flex; gap:8px; margin-top:10px;">
+    <button onclick="agregarTarjeta()">Agregar tarjeta</button>
+    <button class="btn-volver" onclick="window.location.href='catalogo.html'">Volver al inicio</button>
+    </div>
+
+    <hr style="margin:18px 0;">
+
+    <h3>Historial de compras</h3>
+    <div id="historial-compra"></div>
+</main>
+</body>
+</html>

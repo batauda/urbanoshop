@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>UrbanoShop - Catálogo</title>
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+
+<!-- ================================
+     MODAL VER PRODUCTO (FUNCIONAL)
+================================ -->
+<div id="producto-modal" class="modal" style="
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(0,0,0,0.7);
+    justify-content:center;
+    align-items:center;
+    z-index:3000;">
+    
+    <div style="
+        background:white;
+        width:320px;
+        padding:20px;
+        border-radius:14px;
+        text-align:center;
+        position:relative;
+        animation: fadeIn .2s ease-out;">
+        
+        <!-- Botón cerrar -->
+        <button onclick="cerrarModal()" style="
+            position:absolute;
+            top:10px; right:10px;
+            background:#ff4d4d;
+            color:white;
+            border:none;
+            padding:5px 10px;
+            font-weight:bold;
+            border-radius:6px;
+            cursor:pointer;">
+            X
+        </button>
+
+        <!-- Imagen -->
+        <img id="m-img" src="" style="
+            width:100%;
+            height:220px;
+            object-fit:cover;
+            border-radius:10px;
+            margin-bottom:10px;
+        ">
+
+        <!-- Nombre -->
+        <h2 id="m-nombre" style="margin:8px 0;"></h2>
+
+        <!-- Precio -->
+        <p id="m-precio" style="
+            font-size:20px;
+            font-weight:bold;
+            margin:6px 0 16px;">
+        </p>
+
+        <!-- Botón agregar -->
+        <button id="m-agregar" style="
+            width:100%;
+            padding:12px;
+            border:none;
+            background:#0a8;
+            color:white;
+            border-radius:10px;
+            font-size:16px;
+            font-weight:bold;
+            cursor:pointer;">
+            Agregar al carrito
+        </button>
+    </div>
+</div>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="logo">UrbanoShop</div>
+
+  <div class="right-controls">
+    <button id="theme-toggle" class="icon-btn" onclick="toggleTheme()">🌓</button>
+    <span id="usuario-log"></span>
+
+    <div class="user-area">
+      <img src="img/user-icon.png" class="user-icon" onclick="toggleMenu()">
+      <div id="menu" class="dropdown">
+        <p onclick="window.location.href='perfil.html'">Perfil</p>
+        <p onclick="logout()">Cerrar sesión</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENIDO -->
+<main class="container catalog-layout">
+
+  <!-- FILTROS -->
+  <aside class="catalog-sidebar">
+
+    <div class="search-large">
+      <input id="buscador" type="text" placeholder="Buscar productos..." oninput="filtrarProductos()" />
+    </div>
+
+    <div class="filtros">
+      <h4>Categorías</h4>
+      <ul id="lista-categorias"></ul>
+    </div>
+
+    <div class="filtros">
+      <h4>Precio</h4>
+      <p><small>(filtros rápidos)</small></p>
+      <button onclick="aplicarFiltroPrecio(0,10000)">Hasta $10.000</button>
+      <button onclick="aplicarFiltroPrecio(10001,20000)">$10.001 - $20.000</button>
+      <button onclick="aplicarFiltroPrecio(20001,999999)">+ $20.000</button>
+      <button onclick="limpiarFiltroPrecio()">Limpiar</button>
+    </div>
+  </aside>
+
+  <!-- LISTADO -->
+  <section class="catalog-main">
+
+    <div class="catalog-controls">
+      <div id="result-count"></div>
+      <div>
+        <label>Ordenar:</label>
+        <select id="orden" onchange="ordenarProductos()">
+          <option value="default">Predeterminado</option>
+          <option value="price-asc">Precio ↑</option>
+          <option value="price-desc">Precio ↓</option>
+          <option value="name-asc">Nombre A-Z</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="lista-productos" class="catalogo"></div>
+
+  </section>
+</main>
+
+</body>
+</html>

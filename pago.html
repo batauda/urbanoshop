@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>UrbanoShop - Pago</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<div class="top-bar">
+    <div class="logo">UrbanoShop</div>
+    <div class="right-controls">
+    <button id="theme-toggle" class="icon-btn" title="Modo oscuro" onclick="toggleTheme()">🌓</button>
+    <span id="usuario-log"></span>
+    <div class="user-area">
+        <img src="img/user-icon.png" alt="user" class="user-icon" onclick="toggleMenu()">
+        <div id="menu" class="dropdown">
+        <p onclick="window.location.href='perfil.html'">Perfil</p>
+        <p onclick="logout()">Cerrar sesión</p>
+        </div>
+    </div>
+    </div>
+</div>
+
+<main class="container">
+    <h2>Pago</h2>
+
+    <h3>Resumen de compra</h3>
+    <div id="resumen-compra"></div>
+
+    <h3>Total a pagar</h3>
+    <p id="pago-total" style="font-weight:600;"></p>
+
+    <h3>Selecciona una tarjeta</h3>
+    <div id="pago-tarjetas"></div>
+
+    <!-- Tarjeta rápida inline (ocultable) -->
+    <div style="margin-top:12px;">
+    <button id="toggle-fast" onclick="toggleFastBox()">Agregar tarjeta</button>
+    <div id="fast-box" class="tarjeta-rapida-box" style="display:none;">
+        <input id="fast-num" type="text" placeholder="Número de tarjeta (16 dígitos)">
+        <input id="fast-nombre" type="text" placeholder="Nombre en tarjeta">
+        <input id="fast-exp" type="text" placeholder="MM/AA">
+        <label style="display:flex; gap:8px; align-items:center;">
+        <input type="checkbox" id="fast-guardar"> Guardar esta tarjeta en mi perfil
+        </label>
+        <button onclick="agregarTarjetaRapida()">Usar tarjeta</button>
+    </div>
+    </div>
+
+    <div style="margin-top:18px; display:flex; gap:10px;">
+    <button class="btn-volver" onclick="window.location.href='catalogo.html'">Volver al inicio</button>
+    </div>
+
+    <button class="btn-comprar" onclick="goToWebpay()">Pagar con Webpay (simulado)</button>
+</main>
+</body>
+</html>
