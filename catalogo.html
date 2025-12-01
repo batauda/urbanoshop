@@ -12,7 +12,7 @@
 <body>
 
 <!-- ================================
-     MODAL VER PRODUCTO (FUNCIONAL)
+     MODAL VER PRODUCTO
 ================================ -->
 <div id="producto-modal" class="modal" style="
     display:none;
@@ -32,8 +32,7 @@
         text-align:center;
         position:relative;
         animation: fadeIn .2s ease-out;">
-        
-        <!-- Botón cerrar -->
+
         <button onclick="cerrarModal()" style="
             position:absolute;
             top:10px; right:10px;
@@ -47,7 +46,6 @@
             X
         </button>
 
-        <!-- Imagen -->
         <img id="m-img" src="" style="
             width:100%;
             height:220px;
@@ -56,17 +54,14 @@
             margin-bottom:10px;
         ">
 
-        <!-- Nombre -->
         <h2 id="m-nombre" style="margin:8px 0;"></h2>
 
-        <!-- Precio -->
         <p id="m-precio" style="
             font-size:20px;
             font-weight:bold;
             margin:6px 0 16px;">
         </p>
 
-        <!-- Botón agregar -->
         <button id="m-agregar" style="
             width:100%;
             padding:12px;
@@ -82,25 +77,46 @@
     </div>
 </div>
 
-<!-- TOP BAR -->
+<!-- ================================
+         TOP BAR
+================================ -->
 <div class="top-bar">
   <div class="logo">UrbanoShop</div>
 
   <div class="right-controls">
-    <button id="theme-toggle" class="icon-btn" onclick="toggleTheme()">🌓</button>
-    <span id="usuario-log"></span>
 
-    <div class="user-area">
-      <img src="img/user-icon.png" class="user-icon" onclick="toggleMenu()">
-      <div id="menu" class="dropdown">
-        <p onclick="window.location.href='perfil.html'">Perfil</p>
-        <p onclick="logout()">Cerrar sesión</p>
+      <!-- 🌙 Botón modo oscuro -->
+      <button id="theme-toggle" class="icon-btn" title="Modo oscuro" onclick="toggleTheme()">🌓</button>
+
+      <!-- 👤 Usuario -->
+      <span id="usuario-log"></span>
+
+      <!-- 🛒 BOTÓN CARRITO — AQUI ESTÁ -->
+      <button id="carrito-btn" class="icon-btn" title="Carrito" onclick="window.location.href='carrito.html'" style="
+          font-size:22px;
+          padding:6px 10px;
+          border-radius:10px;
+          background:#007aff;
+          color:white;
+          font-weight:bold;">
+        🛒
+      </button>
+
+      <!-- Menu usuario -->
+      <div class="user-area">
+        <img src="img/user-icon.png" alt="user" class="user-icon" onclick="toggleMenu()">
+        <div id="menu" class="dropdown">
+          <p onclick="window.location.href='perfil.html'">Perfil</p>
+          <p onclick="logout()">Cerrar sesión</p>
+        </div>
       </div>
-    </div>
+
   </div>
 </div>
 
-<!-- CONTENIDO -->
+<!-- ================================
+        CONTENIDO PRINCIPAL
+================================ -->
 <main class="container catalog-layout">
 
   <!-- FILTROS -->
@@ -123,6 +139,7 @@
       <button onclick="aplicarFiltroPrecio(20001,999999)">+ $20.000</button>
       <button onclick="limpiarFiltroPrecio()">Limpiar</button>
     </div>
+
   </aside>
 
   <!-- LISTADO -->
